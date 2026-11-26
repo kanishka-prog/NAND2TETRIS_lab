@@ -1,0 +1,55 @@
+// Box.asm - K = 47 - black box while any key is pressed
+(LOOP)
+    @KBD
+    D=M
+    @BLACK
+    D;JNE
+    @color
+    M=0
+    @DRAW
+    0;JMP
+(BLACK)
+    @color
+    M=-1
+(DRAW)
+    @17888
+    D=A
+    @addr
+    M=D
+    @20
+    D=A
+    @rows
+    M=D
+(ROWLOOP)
+    @4
+    D=A
+    @cols
+    M=D
+    @addr
+    D=M
+    @ptr
+    M=D
+(COLLOOP)
+    @color
+    D=M
+    @ptr
+    A=M
+    M=D
+    @ptr
+    M=M+1
+    @cols
+    M=M-1
+    D=M
+    @COLLOOP
+    D;JGT
+    @32
+    D=A
+    @addr
+    M=D+M
+    @rows
+    M=M-1
+    D=M
+    @ROWLOOP
+    D;JGT
+    @LOOP
+    0;JMP
