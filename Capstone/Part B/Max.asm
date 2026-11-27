@@ -1,0 +1,16 @@
+@5
+D=A
+@3
+D=D-A
+@10
+D;JGT
+@0
+M=1
+@11
+0;JMP
+(SETMAX)
+@0
+M=0
+(END)
+@END
+0;JMP
